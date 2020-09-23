@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Minesweeper</title>
+    <link rel="icon" href="imgs/icon.png" />
+</head>
+
+<body onload="init()">
+    <div class="container">
+        <div class="header">
+            <h1>MineSweeper - Rick edition</h1>
+            <img src="imgs/rick.png" class="rick" />
+            <div class="timer">
+                Timer:<span class="time"></span>
+            </div>
+        </div>
+        <table border="1" cellpadding="20">
+            <tbody class="board"></tbody>
+        </table>
+
+        <div class="bubble">
+            <span class="bubble-span"></span>
+            <button onclick="init()">Play again</button>
+        </div>
+
+        <div class="level-modal">
+            <button onclick="pickMode(4)">Beginner</button>
+            <button onclick="pickMode(8)">Medium</button>
+            <button onclick="pickMode(12)">Expert</button>
+        </div>
+    </div>
+
+    <!-- <table>
+        <tbody class="board"></tbody>
+    </table> -->
+
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

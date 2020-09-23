@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #97ce4c;
+    background-image: url('../imgs/pickle-rick.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 650px 900px;
+    background-position-y: 400px;
+    background-position-x: 1750px
+}
+
+table {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    margin: 50px;
+    font-family: monospace;
+    font-size: 80px;
+    color: white;
+    display: inline;
+}
+
+.timer {
+    margin: 100px 0;
+    font-size: 50px;
+    font-family: monospace;
+}
+
+.board td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    padding: 10px;
+    transition: .5s;
+    font-family: cursive;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+table td {
+    background-color: black;
+}
+
+.show {
+    background: white;
+    color: black;
+}
+
+.hit-mine {
+    background: red;
+}
+
+.bubble {
+    background-color: #f8f8f8;
+    border: 1px solid #c8c8c8;
+    border-radius: 10px;
+    width: 225px;
+    text-align: center;
+    padding: 60px;
+    position: absolute;
+    right: 470px;
+    top: 490px;
+    animation: fade 0.5s ease;
+    transition: all 0.5 ease;
+    display: none;
+    color: black;
+}
+
+.bubble button {
+    margin: 10px;
+    color: white;
+    background: black;
+    outline: 0;
+    border: 0;
+    border-radius: 15px;
+    padding: 1rem 0.5rem;
+}
+
+.level-modal {
+    text-align: center;
+    border-radius: 15px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.level-modal button {
+    margin: 10px;
+    padding: 1rem 0.5rem;
+    font-size: 15px;
+    background: black;
+    color: white;
+    outline: 0;
+    border: 0;
+    border-radius: 15px;
+    background: black;
+    color: white;
+}
+
+.rick {
+    width: 250px;
+    height: 250px;
+}
