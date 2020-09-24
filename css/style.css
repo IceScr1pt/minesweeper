@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: Rick, cursive;
+    src: url('../fonts/get_schwifty.ttf');
+}
+
 body {
     background-color: #97ce4c;
     background-image: url('../imgs/pickle-rick.png');
@@ -11,37 +16,42 @@ body {
     background-position: right;
     background-size: 650px 900px;
     background-position-y: 400px;
-    background-position-x: 1750px
+    background-position-x: 1900px;
 }
 
 table {
     text-align: center;
-    margin: 50px auto;
+    margin: 0 auto;
 }
 
 .header {
     text-align: center;
+    position: relative;
 }
 
 .header h1 {
     margin: 50px;
-    font-family: monospace;
-    font-size: 80px;
+    font-family: Rick;
+    font-size: 50px;
     color: white;
-    display: inline;
+    font-family: cursive;
 }
 
 .timer {
-    margin: 100px 0;
+    position: absolute;
+    top: 0;
+    right: 10px;
     font-size: 50px;
-    font-family: monospace;
+    color: red;
+    font-family: cursive, sans-serif;
+    font-weight: bold;
 }
 
 .board td {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 74px;
     text-align: center;
-    padding: 10px;
+    padding: 6px;
     transition: .5s;
     font-family: cursive;
     font-size: 25px;
@@ -65,16 +75,21 @@ table td {
     background-color: #f8f8f8;
     border: 1px solid #c8c8c8;
     border-radius: 10px;
-    width: 225px;
+    width: 250px;
     text-align: center;
     padding: 60px;
     position: absolute;
-    right: 470px;
-    top: 490px;
+    right: 300px;
+    top: 390px;
     animation: fade 0.5s ease;
     transition: all 0.5 ease;
     display: none;
     color: black;
+}
+
+.bubble-span {
+    font-size: 16px;
+    font-family: cursive;
 }
 
 .bubble button {
@@ -84,33 +99,125 @@ table td {
     outline: 0;
     border: 0;
     border-radius: 15px;
-    padding: 1rem 0.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
 }
 
 .level-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
     text-align: center;
+}
+
+.lifes {
+    margin: 10px;
+    font-size: 40px;
+    font-family: cursive, sans-serif;
+}
+
+.level-buttons h3 {
+    font-size: 30px;
+}
+
+.level-buttons {
+    display: inline;
     border-radius: 15px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px auto;
 }
 
 .level-modal button {
     margin: 10px;
-    padding: 1rem 0.5rem;
-    font-size: 15px;
-    background: black;
+    padding: 1rem 1.5rem;
+    font-size: 20px;
     color: white;
     outline: 0;
     border: 0;
-    border-radius: 15px;
-    background: black;
+    border-radius: 10px;
     color: white;
+    font-family: cursive;
+    cursor: pointer;
+}
+
+.beginner {
+    background-color: #44281d;
+}
+
+.medium {
+    background-color: #23395d;
+}
+
+.expert {
+    background-color: #f0e14a;
 }
 
 .rick {
-    width: 250px;
-    height: 250px;
+    width: 100px;
+    height: 100px;
+}
+
+.hints {
+    position: absolute;
+    top: 300px;
+    left: 40px
+}
+
+.hint {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.gun {
+    width: 55px;
+    height: 55px;
+}
+
+.smile-img {
+    width: 150px;
+    height: 150px;
+}
+
+.smile-img:hover {
+    transform: rotateZ(360deg) scale(1.1);
+    transition: all 0.5s ease;
+}
+
+.portal-gun {
+    width: 70px;
+    height: 70px;
+}
+
+.safe {
+    position: absolute;
+    left: 200px;
+    top: 700px;
+    text-align: center;
+    display: none;
+}
+
+.safe-rick {
+    width: 50px;
+    height: 50px;
+}
+
+.click-left {
+    color: white;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.safe-click {
+    border: 0;
+    outline: 0;
+    font-size: 20px;
+    background: darkgreen;
+    color: white;
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.safe-click:hover {
+    opacity: 0.9;
 }

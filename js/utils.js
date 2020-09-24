@@ -34,3 +34,12 @@ function formatTimestamp(secs) {
 
 
 
+function renderCell(location, value) {
+    // Select the elCell and set the value
+    var elCell = document.querySelector(`.cell-${location.i}-${location.j}`);
+    // if (reveal) elCell.classList.add('show');
+    console.log('cell elem:', elCell)
+    elCell.innerHTML = value;
+}
+
+
