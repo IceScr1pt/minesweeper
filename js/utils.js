@@ -1,14 +1,5 @@
 
 
-
-function renderCell(location, value) {
-    // Select the elCell and set the value
-    var elCell = document.querySelector(`.cell${location.i}-${location.j}`);
-    elCell.innerHTML = value;
-}
-
-
-
 function getRandomInteger(min, max) {
     var randNum = Math.floor(Math.random() * (max - min + 1)) + min;
     return randNum;
@@ -34,12 +25,45 @@ function formatTimestamp(secs) {
 
 
 
-function renderCell(location, value) {
-    // Select the elCell and set the value
-    var elCell = document.querySelector(`.cell-${location.i}-${location.j}`);
-    // if (reveal) elCell.classList.add('show');
-    console.log('cell elem:', elCell)
-    elCell.innerHTML = value;
+// function renderCell(location, value) {
+
+//     // Select the elCell and set the value
+//     var elCell = document.querySelector(`.cell-${location.i}-${location.j}`);
+//     // if (reveal) elCell.classList.add('show');
+//     console.log('cell elem:', elCell)
+//     elCell.innerHTML = value;
+// }
+
+
+function showAlert(msg, mode) {
+    var elAlert = document.createElement('div');
+    mode === 's' ? elAlert.classList.add('alert-success') : elAlert.classList.add('alert-danger')
+    elAlert.innerHTML = msg;
+    elAlert.style.display = 'block';
+    document.body.appendChild(elAlert);
+    setTimeout(function () {
+        elAlert.style.display = 'none';
+        document.body.removeChild(elAlert);
+    }, 3000)
 }
 
 
+function closeModal(elModal) {
+    console.log('got here')
+    elModal.style.display = 'none';
+}
+
+function openModal(elModal) {
+    elModal.style.display = 'flex';
+}
+
+function copyMat(mat) {
+    var newMat = [];
+    for (var i = 0; i < mat.length; i++) {
+        newMat[i] = [];
+        for (var j = 0; j < mat[0].length; j++) {
+            newMat[i][j] = mat[i][j];
+        }
+    }
+    return newMat;
+}

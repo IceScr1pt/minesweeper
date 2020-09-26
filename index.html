@@ -14,27 +14,36 @@
         <div class="header">
             <h1>MineSweeper - Rick edition</h1>
             <div class="smiley">
-                <span><img class="smile-img" src="imgs/rick-win.png" alt="" /></span>
+                <span><img onclick="init()" class="smile-img" src="imgs/rick-win.png" alt="" /></span>
             </div>
+            <!--hints-->
             <div class="hints">
-                <span><img src="imgs/safe-rick.png" class="hint" onclick="hintClicked(this)" /></span>
-                <span><img src="imgs/safe-rick.png" class="hint" onclick="hintClicked(this)" /></span>
-                <span><img src="imgs/safe-rick.png" class="hint" onclick="hintClicked(this)" /></span>
+                <p>Meeseeks Left:</p>
+                <span><img src="imgs/messeeks.png" class="hint" onclick="hintClicked(this)" /></span>
+                <span><img src="imgs/messeeks.png" class="hint" onclick="hintClicked(this)" /></span>
+                <span><img src="imgs/messeeks.png" class="hint" onclick="hintClicked(this)" /></span>
             </div>
+            <!--lifes-->
             <div class="lifes">
                 <span class="life"></span> Lifes left
             </div>
-            <!-- <img src="imgs/rick.png" class="rick" /> -->
-            <!-- <p><img src="imgs/gun.png" class="portal-gun" />Portal gun: <span class="flag"></span></p> -->
+            <!--manuel-mode-->
+            <div class="manual-mode">
+                <img src="imgs/pickaxe.png" class="axe" onclick="activateManualMode(this)" />
+                <button onclick="hideManualMines()">End Manual Mode</button>
+                <button class="undo" onclick="undoClicked()">Undo</button>
+            </div>
         </div>
+        <!--the board-->
         <table border="1" cellpadding="20">
             <tbody class="board"></tbody>
         </table>
-
+        <!--bubble-->
         <div class="bubble">
             <span class="bubble-span"></span>
-            <button onclick="init()">Play again</button>
+            <!-- <button onclick="init()">Play again</button> -->
         </div>
+        <!--level modal-->
         <div class="level-modal">
             <div class="level-buttons">
                 <button class="beginner" onclick="pickMode(4)">Beginner</button>
@@ -42,19 +51,29 @@
                 <button class="expert" onclick="pickMode(12)">Expert</button>
             </div>
         </div>
+        <!--safe-click-->
         <div class="safe">
             <button class="safe-click" onclick="revealSafeCell()"> <img src="imgs/hint.png" class="safe-rick" /> Safe
                 Click</button>
             <p class="click-left">3 Safe Click Available</p>
         </div>
+        <!--timer-->
         <div class="timer">
             <span class="time"></span>
         </div>
     </div>
+    </div>
+    <button onclick="openModal()" class="leaderboard">🏆 Leaderboard</button>
 
-    <!-- <table>
-        <tbody class="board"></tbody>
-    </table> -->
+    <div class="score-modal">
+        <div class="score-popup">
+            <button onclick="closeModal()">✖️</button>
+            <h3>Leaderboard</h3>
+            <p>Beginner: <span class="score-beginner"></span></p>
+            <p>Medium: <span class="score-medium"></span></p>
+            <p>Expert: <span class="score-expert"></span></p>
+        </div>
+    </div>
 
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>
