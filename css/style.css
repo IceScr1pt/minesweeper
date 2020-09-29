@@ -17,11 +17,6 @@ body {
     background-position-y: 400px;
 }
 
-.table1 {
-    text-align: center;
-    margin: 20px auto;
-}
-
 .header {
     text-align: center;
     position: relative;
@@ -52,7 +47,7 @@ body {
     position: absolute;
     top: 0;
     right: 10px;
-    font-size: 30px;
+    font-size: 40px;
     color: red;
     font-family: cursive, sans-serif;
     font-weight: bold;
@@ -70,7 +65,7 @@ body {
 }
 
 table.board-table {
-    margin: 1px auto;
+    margin: 5px auto;
     background: black;
 }
 
@@ -698,6 +693,7 @@ max-width: 1900px 1900px - 1000px  */
     }
     .timer {
         position: absolute;
+        font-size: 30px;
     }
     .manual-mode {
         display: inline;
