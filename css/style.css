@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +9,7 @@
 /* #97ce4c; */
 
 body {
-    background-color: gray;
+    background-color: #292c34;
     background-image: url('../imgs/pickle-rick.png');
     background-repeat: no-repeat;
     background-position: right;
@@ -16,7 +17,7 @@ body {
     background-position-y: 400px;
 }
 
-table {
+.table1 {
     text-align: center;
     margin: 20px auto;
 }
@@ -28,22 +29,30 @@ table {
 
 .header h1 {
     /* margin: 50px; */
-    font-family: cursive, sans-serif;
-    font-size: 50px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 60px;
     color: white;
+    display: inline;
     /* font-family: cursive; */
 }
 
 .lifes {
-    font-size: 25px;
     font-family: cursive, sans-serif;
+    color: white;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+}
+
+.life {
+    font-size: 50px;
 }
 
 .timer {
     position: absolute;
     top: 0;
     right: 10px;
-    font-size: 40px;
+    font-size: 30px;
     color: red;
     font-family: cursive, sans-serif;
     font-weight: bold;
@@ -53,15 +62,16 @@ table {
     width: 75px;
     height: 76px;
     text-align: center;
-    padding: 6px;
-    transition: .5s;
+    padding: 5px;
     font-family: cursive;
     font-size: 25px;
     cursor: pointer;
+    border: 1px solid white;
 }
 
-table td {
-    background-color: black;
+table.board-table {
+    margin: 1px auto;
+    background: black;
 }
 
 /*show class*/
@@ -69,6 +79,7 @@ table td {
 .show {
     background: white;
     color: black;
+    transition: all 0.5s ease;
 }
 
 /*show class only in hint-mode*/
@@ -98,11 +109,13 @@ table td {
     transition: all 0.5 ease;
     display: none;
     color: black;
+    animation: revealBoard 1s ease;
 }
 
 .bubble-span {
     font-size: 20px;
     font-family: cursive;
+    text-align: center;
 }
 
 .bubble button {
@@ -147,7 +160,7 @@ table td {
     cursor: pointer;
 }
 
-.level-modal button:hover {
+.level-modal button.level-modal button:hover, .leaderboard-btn:hover, .change-user:hover {
     opacity: 0.8;
     transform: scale(1.1);
     transition: all 0.5s ease;
@@ -156,15 +169,15 @@ table td {
 /*color of mode buttons*/
 
 .beginner {
-    background-color: #44281d;
+    background-color: #8601af;
 }
 
 .medium {
-    background-color: #23395d;
+    background-color: #e5e500;
 }
 
 .expert {
-    background-color: #f0e14a;
+    background-color: #37C551;
 }
 
 /*style for flag*/
@@ -256,16 +269,30 @@ table td {
 
 /*manual div style*/
 
-.manual-mode button {
+.manual-mode .manual-btn {
     border: 0;
     outline: 0;
-    background: #c8c8c8;
-    color: black;
     border-radius: 10px;
-    padding: 1rem 1.5rem;
-    font-size: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
+}
+
+.undo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    margin-top: 5px;
+    animation: rainbow 5s infinite alternate-reverse;
 }
 
 .rick {
@@ -274,8 +301,8 @@ table td {
 }
 
 .axe {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
 }
 
@@ -324,7 +351,6 @@ table td {
     position: absolute;
     right: 250px;
     top: 390px;
-    ;
 }
 
 /*score modal*/
@@ -345,7 +371,7 @@ table td {
 
 .score-popup {
     background: white;
-    padding: 7rem;
+    padding: 8rem;
     border-radius: 10px;
     text-align: center;
     position: relative;
@@ -359,7 +385,9 @@ table td {
 }
 
 .score-modal h3 {
-    font-size: 30px;
+    font-size: 50px;
+    font-family: monospace;
+    margin-bottom: 15px;
 }
 
 .score-modal button {
@@ -371,15 +399,58 @@ table td {
     padding: 0.4rem;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 20px;
+    color: white;
     background: black;
     font-size: 20px;
     cursor: pointer;
 }
 
-.leaderboard {
+table.score-table {
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+}
+
+table.score-table td, th {
+    padding: 0.5rem;
+    text-align: center;
+    border: 2.5px solid black;
+}
+
+table.score-table th {
+    background: gray;
+    color: black;
+}
+
+table.score-table td {
+    padding: 12px 15px;
+}
+
+table.score-table tr {
+    border-bottom: 1px solid #dddd;
+}
+
+.td1-mode {
+    background: #8601af;
+    ;
+    color: white;
+}
+
+.td2-mode {
+    background: #e5e500;
+    color: white;
+}
+
+.td3-mode {
+    background: #37C551;
+    color: white;
+}
+
+.leaderboard-btn {
     position: absolute;
-    left: 10px;
-    bottom: 50px;
+    left: 20px;
+    bottom: 20px;
     outline: 0;
     border: 0;
     color: white;
@@ -388,12 +459,31 @@ table td {
     cursor: pointer;
     font-family: cursive;
     font-size: 20px;
-    background: black;
+    background: #aa0000;
+}
+
+.change-user {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    outline: 0;
+    border: 0;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: cursive;
+    font-size: 20px;
+    background: #00578a;
 }
 
 .mine {
     width: 40px;
     height: 40px;
+}
+
+.show-bomb {
+    background: red;
 }
 
 @keyframes fade {
@@ -405,13 +495,72 @@ table td {
     }
 }
 
-@media (max-width:1708px) {
+@keyframes revealBoard {
+    from {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes barLoad {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1)
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background: #9f41a4;
+    }
+    10% {
+        background: #ca1c1c;
+    }
+    20% {
+        background: #3078c0;
+    }
+    30% {
+        background: #30c03e;
+    }
+    40% {
+        background: #704300;
+    }
+    50% {
+        background: #5b013e;
+    }
+    60% {
+        background: #72d5f9;
+    }
+    70% {
+        background: #207480;
+    }
+    80% {
+        background: #fff41a;
+    }
+    90% {
+        background: #f60e92;
+    }
+    100% {
+        background: #21200a;
+    }
+}
+
+/* 
+max-width: 1900px 1900px - 1000px  */
+
+@media (max-width:1911px) {
     body {
-        background-size: 600px 900px;
-        background-position-y: 500px;
+        background-size: 500px 800px;
+        background-position-y: 550px;
     }
     .header h1 {
-        font-size: 35px;
+        font-size: 40px;
     }
     .gun {
         width: 40px;
@@ -430,10 +579,127 @@ table td {
         width: 250px;
         font-size: 10px;
         right: 200px;
-        top: 450px;
+        top: 500px;
+    }
+    .hint {
+        width: 90px;
+        height: 90;
+    }
+    .safe {
+        position: absolute;
+        left: 50px;
+        top: 700px;
+        text-align: center;
+        display: none;
     }
 }
 
-.show-bomb {
-    background: red;
+@media (max-width:1526px) {
+    body {
+        background-size: 350px 700px;
+        background-position-y: 200px;
+    }
+    .header h1 {
+        font-size: 25px;
+    }
+    .gun {
+        width: 40px;
+        height: 40px;
+    }
+    .mine {
+        width: 25px;
+        height: 25px;
+    }
+    .board td {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+    .bubble {
+        width: 220px;
+        height: 100px;
+        font-size: 10px;
+        right: 135px;
+        top: 200px;
+    }
+    .bubble-span {
+        font-size: 15px;
+        padding: 0;
+        text-align: center;
+    }
+    .hint {
+        width: 90px;
+        height: 90;
+    }
+    .safe {
+        position: absolute;
+        left: 50px;
+        top: 700px;
+        text-align: center;
+        display: none;
+    }
+    .smile-img {
+        width: 45px;
+        height: 45px;
+    }
+    .level-modal button {
+        font-size: 15px;
+        padding: 0.5rem 1rem;
+    }
+    .axe {
+        width: 30px;
+        height: 30px;
+    }
+    .manual-mode .manual-btn {
+        font-size: 12px;
+        padding: 0.5rem 0.5rem;
+    }
+    .undo {
+        font-size: 14px;
+        padding: 0.5rem 1rem;
+    }
+    .score-popup {
+        padding: 4rem;
+    }
+    .leaderboard-btn {
+        font-size: 14px;
+    }
+    .change-user {
+        bottom: 80px;
+        font-size: 14px;
+    }
+    .hints {
+        top: 150px;
+    }
+    .hint {
+        width: 70px;
+        height: 70px;
+    }
+    .safe {
+        top: 300px;
+    }
+    .safe-click {
+        font-size: 15px;
+    }
+    .safe-rick {
+        width: 40px;
+        height: 40px;
+    }
+    .mine {
+        width: 20px;
+        height: 20px;
+    }
+    .gun {
+        width: 25px;
+        height: 25px;
+    }
+    .lifes {
+        font-size: 15px;
+    }
+    .timer {
+        position: absolute;
+    }
+    .manual-mode {
+        display: inline;
+    }
 }
